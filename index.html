@@ -55,6 +55,16 @@
     </div>
   </header>
 
+  <!-- MOBILE TOP BANNER AD -->
+    <div id="mobileTopAd" class="mobile-ad hidden">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="pub-9597923701256045"
+           data-ad-slot="1111111111"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+
   <!-- ========================= DESCRIPTION ABOVE CALCULATOR ========================= -->
   <section class="calculator-intro">
     <p class="calculator-description">
@@ -66,7 +76,7 @@
   <main class="calculator-container" id="calculatorRoot">
     <div class="calculator-card collapsed">
 
-     <!-- CHART LINK ABOVE HEADING -->
+      <!-- CHART LINK ABOVE HEADING -->
       <p id="openChart" class="open-chart-link hidden">
         <a href="recommended.html">📊 View Recommended Sleep Chart</a>
       </p>
@@ -129,6 +139,16 @@
       <!-- RESULTS -->
       <div id="results" class="results hidden" aria-live="polite"></div>
 
+      <!-- INLINE AD (shows after pressing Calculate) -->
+    <div id="mobileInlineAd" class="mobile-ad hidden">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="pub-9597923701256045"
+           data-ad-slot="2222222222"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+
       <!-- SPECIAL NOTE -->
       <div id="specialNote" class="special-note hidden"></div>
 
@@ -145,15 +165,15 @@
   </main>
 
   <!-- ========================= MOBILE AD SECTION ========================= -->
-<div id="mobileAdContainer" class="mobile-ad hidden">
-  <!-- Example: Google AdSense Ad -->
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="pub-9597923701256045"   <!-- replace with your AdSense ID -->
-       data-ad-slot="YYYYYYY"            <!-- replace with your ad slot ID -->
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-</div>
+   <!-- BOTTOM BANNER AD -->
+    <div id="mobileBottomAd" class="mobile-ad hidden">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="pub-9597923701256045"
+           data-ad-slot="3333333333"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
 
   <!-- ========================= FOOTER ========================= -->
   <footer class="site-footer">
@@ -166,27 +186,6 @@
 
   <!-- JS -->
   <script src="js/script.js"></script>
-
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  // Detect if user is on mobile
-  function isMobileDevice() {
-    return /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
-  }
-
-  // Show ad only on mobile
-  document.addEventListener("DOMContentLoaded", function() {
-    if (isMobileDevice()) {
-      const adContainer = document.getElementById("mobileAdContainer");
-      adContainer.classList.remove("hidden");
-      try {
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      } catch (e) {
-        console.error("AdSense load error:", e);
-      }
-    }
-  });
-</script>
 
 </body>
 </html>
