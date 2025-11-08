@@ -347,3 +347,43 @@ themeToggle.textContent = document.body.classList.contains('dark') ? 'ðŸŒž' : 'ð
     }
   });
 });
+
+// =========================
+// AD INITIALIZATION
+// =========================
+function loadMobileAds() {
+  if (window.innerWidth <= 768) { // Only show ads on mobile
+    document.querySelectorAll('.mobile-ad').forEach(ad => {
+      ad.style.display = 'block';
+      try {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) {
+        console.log('Ad load error:', e);
+      }
+    });
+  } else {
+    // Hide on desktop
+    document.querySelectorAll('.mobile-ad').forEach(ad => {
+      ad.style.display = 'none';
+    });
+  }
+}
+
+// Load ads after DOM ready
+window.addEventListener('load', loadMobileAds);
+window.addEventListener('resize', loadMobileAds);
+
+// Show inline ad only after pressing calculate
+const calculateBtn = document.getElementById('calculate');
+if (calculateBtn) {
+  calculateBtn.addEventListener('click', () => {
+    const inlineAd = document.querySelector('.inline-ad');
+    if (inlineAd && window.innerWidth <= 768) {
+      inlineAd.classList.remove('hidden');
+      try {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) {}
+    }
+  });
+}
+
