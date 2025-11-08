@@ -1,4 +1,4 @@
-﻿// js/script.js
+// js/script.js
 document.addEventListener('DOMContentLoaded', () => {
   // -----------------------
   // Element refs
