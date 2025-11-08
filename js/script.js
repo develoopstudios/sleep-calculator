@@ -318,19 +318,25 @@ document.addEventListener('DOMContentLoaded', () => {
   closeModalBtn?.addEventListener('click', hideModal);
 
   // -----------------------
-  // Theme toggle
-  // -----------------------
-  // Apply saved theme on load
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'dark') document.body.classList.add('dark');
-  themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
-    // update icon text
-    themeToggle.textContent = document.body.classList.contains('dark') ? '🌞' : '🌙';
-  });
-  // ensure icon initial state
+// Theme toggle
+// -----------------------
+// Apply saved theme on load, default to dark
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'light') {
+  document.body.classList.remove('dark');
+} else {
+  document.body.classList.add('dark'); // default dark
+}
+
+themeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+  localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+  // update icon text
   themeToggle.textContent = document.body.classList.contains('dark') ? '🌞' : '🌙';
+});
+
+// ensure icon initial state
+themeToggle.textContent = document.body.classList.contains('dark') ? '🌞' : '🌙';
 
   // -----------------------
   // Accessibility: keyboard to close modal with Esc
@@ -341,3 +347,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
