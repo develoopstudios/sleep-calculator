@@ -171,6 +171,49 @@ body {
   color: var(--text);
 }
 
+/* ========================= Description Above Calculator ========================= */
+.calculator-intro {
+  text-align: center;       /* center the text */
+
+  padding: 0 1rem;          /* padding for small screens */
+  max-width: 700px;         /* limits line length for readability */
+}
+
+.calculator-description {
+  font-size: 1.0rem;
+  line-height: 1.6;
+  word-wrap: break-word;    /* ensures text wraps properly on small screens */
+}
+
+/* ========================= Mobile Responsive ========================= */
+@media (max-width: 480px) {
+  .calculator-intro {
+    margin: 1rem auto;
+    padding: 0 0.5rem;
+  }
+
+  .calculator-description {
+    font-size: 1rem;        /* slightly smaller on very small screens */
+  }
+
+  /* Ensure calculator grid stacks vertically */
+  .calculator-grid {
+    display: block;          /* stack sections vertically */
+    gap: 1rem;               /* spacing between sections */
+  }
+
+  /* Make select dropdowns smaller and button full-width */
+  .time-selectors select {
+    width: 30%;              
+    margin-bottom: 0.5rem;
+  }
+
+  .btn-primary {
+    width: 100%;             /* button full width on mobile */
+  }
+}
+
+
 /*
 =========================
    GRID
@@ -587,5 +630,3 @@ footer {
 body.dark .takeaways-box {
   background: var(--panel-bg);
 }
-
-
