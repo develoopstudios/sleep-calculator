@@ -6,6 +6,7 @@
   <title>Recommended Sleep by Age | Sleep Calculator</title>
   <link rel="stylesheet" href="css/style.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <style>
     :root {
       --bg: #f9fafb;
@@ -40,6 +41,7 @@
       color: var(--text);
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
+      overflow-x: hidden;
     }
 
     /* HEADER */
@@ -86,14 +88,16 @@
     main {
       display: flex;
       justify-content: center;
-      padding: 30px 20px;
+      padding: 30px 10px;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .chart-card {
       background: var(--card-bg);
       border-radius: 20px;
       box-shadow: var(--card-shadow);
-      padding: 30px 24px;
+      padding: 30px 20px;
       max-width: 960px;
       width: 100%;
       text-align: center;
@@ -101,10 +105,11 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
+      box-sizing: border-box;
     }
 
     .chart-card h2 {
-      font-size: 28px;
+      font-size: 26px;
       margin-bottom: 8px;
       color: var(--text);
     }
@@ -115,6 +120,16 @@
       margin-bottom: 24px;
     }
 
+    /* ✅ FIX: Responsive table wrapper */
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 10px;
+      box-sizing: border-box;
+    }
+
     table {
       width: 100%;
       border-collapse: separate;
@@ -122,12 +137,16 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       overflow: hidden;
+      min-width: 600px;
+      margin: 0 auto;
     }
 
     th, td {
       padding: 12px;
       border-bottom: 1px solid var(--border);
       text-align: center;
+      vertical-align: middle;
+      transition: background 0.3s ease;
     }
 
     table th:not(:last-child),
@@ -138,9 +157,14 @@
     th {
       background: var(--accent-light);
       color: var(--text-strong);
+      font-weight: 600;
     }
 
-    tr:hover {
+    tbody tr:nth-child(even) {
+      background: var(--panel-bg);
+    }
+
+    tbody tr:hover {
       background: var(--hover-bg);
     }
 
@@ -151,26 +175,23 @@
       border-radius: 16px;
       width: 100%;
       overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      box-sizing: border-box;
     }
 
-    .info {
+    .info, .takeaways-box {
       background: var(--panel-bg);
       padding: 16px 20px;
       border-radius: 14px;
       color: var(--muted);
       font-size: 15px;
       text-align: left;
-    }
-
-    .takeaways-box {
-      background: var(--panel-bg);
-      padding: 16px 20px;
-      border-radius: 14px;
-      text-align: left;
+      line-height: 1.6;
     }
 
     .takeaways-box h3 {
       margin-top: 0;
+      color: var(--text);
     }
 
     .back-link {
@@ -205,19 +226,21 @@
       text-decoration: underline;
     }
 
-    /* RESPONSIVE */
+    /* ✅ RESPONSIVE FIXES */
     @media (max-width: 768px) {
       .chart-card {
         padding: 20px 15px;
+        border-radius: 16px;
       }
       table {
         font-size: 14px;
+        min-width: 600px;
       }
       .chart-card h2 {
         font-size: 22px;
       }
       main {
-        padding: 20px 10px;
+        padding: 20px 8px;
       }
     }
 
@@ -225,6 +248,9 @@
       table th, table td {
         padding: 8px;
         font-size: 13px;
+      }
+      .chart-card {
+        padding: 15px 8px;
       }
       .back-link {
         padding: 8px 14px;
@@ -235,8 +261,6 @@
 </head>
 
 <body>
-<div class="accent-bar"></div>
-
 <header class="page-header">
   <div class="header-inner">
     <div class="header-left">
@@ -256,48 +280,46 @@
     <h2>Recommended Sleep by Age</h2>
     <p class="subtitle">Based on guidelines from the <strong>National Sleep Foundation</strong> and the <strong>CDC</strong>.</p>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Type</th>
-          <th>Age Group</th>
-          <th>Sleep Duration</th>
-          <th>Note</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>New Born</td><td>0–3 Months</td><td>14–17 hours</td><td>Includes naps, some may sleep up to 18–19 hrs.</td></tr>
-        <tr><td>Infant</td><td>4–11 Months</td><td>12–15 hours</td><td>Includes daytime naps.</td></tr>
-        <tr><td>Toddler</td><td>1–2 Years</td><td>11–14 hours</td><td>Still nap once or twice a day.</td></tr>
-        <tr><td>Pre School</td><td>3–5 Years</td><td>10–13 hours</td><td>May drop naps but still need long nighttime sleep.</td></tr>
-        <tr><td>School Age</td><td>6–13 Years</td><td>9–11 hours</td><td>Important for learning and growth.</td></tr>
-        <tr><td>Teensagers</td><td>14–17 Years</td><td>8–10 hours</td><td>Many teens are sleep-deprived due to lifestyle.</td></tr>
-        <tr><td>Young adults</td><td>18–25 Years</td><td>7–9 hours</td><td>Maintain consistent sleep patterns.</td></tr>
-        <tr><td>Adults</td><td>26-64 Years</td><td>7–9 hours</td><td>Ideal for physical and mental performance.</td></tr>
-        <tr><td>Other Adults</td><td>65+ Years</td><td>7–9 hours</td><td>Sleep may be lighter and more fragmented.</td></tr>
-      </tbody>
-    </table>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Age Group</th>
+            <th>Sleep Duration</th>
+            <th>Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>New Born</td><td>0–3 Months</td><td>14–17 hours</td><td>Includes naps, some may sleep up to 18–19 hrs.</td></tr>
+          <tr><td>Infant</td><td>4–11 Months</td><td>12–15 hours</td><td>Includes daytime naps.</td></tr>
+          <tr><td>Toddler</td><td>1–2 Years</td><td>11–14 hours</td><td>Still nap once or twice a day.</td></tr>
+          <tr><td>Pre School</td><td>3–5 Years</td><td>10–13 hours</td><td>May drop naps but still need long nighttime sleep.</td></tr>
+          <tr><td>School Age</td><td>6–13 Years</td><td>9–11 hours</td><td>Important for learning and growth.</td></tr>
+          <tr><td>Teenagers</td><td>14–17 Years</td><td>8–10 hours</td><td>Many teens are sleep-deprived due to lifestyle.</td></tr>
+          <tr><td>Young Adults</td><td>18–25 Years</td><td>7–9 hours</td><td>Maintain consistent sleep patterns.</td></tr>
+          <tr><td>Adults</td><td>26–64 Years</td><td>7–9 hours</td><td>Ideal for physical and mental performance.</td></tr>
+          <tr><td>Older Adults</td><td>65+ Years</td><td>7–8 hours</td><td>Sleep may be lighter and more fragmented.</td></tr>
+        </tbody>
+      </table>
+    </div>
 
     <div class="chart-box">
       <canvas id="sleepChart" width="400" height="220"></canvas>
     </div>
 
     <div class="info">
-      <p>💡 <strong>Note:</strong> These values are averages based on large-scale studies by the National Sleep Foundation and CDC. Individual needs may vary.</p>
-      <p>To improve sleep quality, maintain a regular schedule, reduce screen time before bed, and create a comfortable sleeping environment.</p>
-    </div>
-
-    <div class="info">
-      <p>Some people do not know how much sleep they should get or simply do not budget enough time for sleep. National Library of Medicine, Biotech Information. Most adults should get seven to nine hours of sleep per night. Babies, young children, and adolescents need more sleep than adults do.</p>
+      💡 <strong>Note:</strong> These values are based on studies by the National Sleep Foundation and CDC.  
+      To improve sleep quality, maintain a regular schedule, reduce screen time before bed, and create a comfortable environment.
     </div>
 
     <div class="takeaways-box">
       <h3>Key Takeaways</h3>
       <ul>
-        <li>Your recommended amount of sleep each night largely depends on your age.</li>
-        <li>Going to sleep and waking up at the same time is a cornerstone of healthy sleep hygiene.</li>
-        <li>A healthy sleep cycle consists of light sleep, deep sleep, and REM stages.</li>
-        <li>Sleep deprivation can affect your physical and mental health.</li>
+        <li>Sleep needs depend on age — younger people need more sleep.</li>
+        <li>Consistency in bedtime and wake-up time is crucial for good health.</li>
+        <li>Quality sleep improves mood, focus, and physical health.</li>
+        <li>Chronic sleep deprivation can lead to serious health issues.</li>
       </ul>
     </div>
 
@@ -333,22 +355,23 @@
   // ---------- Chart.js ----------
   const ctx = document.getElementById('sleepChart').getContext('2d');
   const chartData = {
-    labels: ['0–3M','4–11M','1–2Y','3–5Y','6–13Y','14–17Y','18–25Y','26–35Y','36–45Y','46–55Y','56–64Y','65+'],
+    labels: ['0–3M','4–11M','1–2Y','3–5Y','6–13Y','14–17Y','18–25Y','26–64Y','65+'],
     datasets: [{
       label: 'Min Hours',
-      data: [14, 12, 11, 10, 9, 8, 7, 7, 7, 7, 7, 7],
+      data: [14, 12, 11, 10, 9, 8, 7, 7, 7],
       backgroundColor: 'rgba(59,130,246,0.7)'
     },{
       label: 'Max Hours',
-      data: [17, 15, 14, 13, 11, 10, 9, 9, 9, 9, 8, 8],
+      data: [17, 15, 14, 13, 11, 10, 9, 9, 8],
       backgroundColor: 'rgba(147,197,253,0.7)'
     }]
   };
 
   const chartOptions = {
     responsive: true,
+    maintainAspectRatio: false,
     scales: {
-      y: { beginAtZero: true, title: { display: true, text: 'Hours of Sleep' }, ticks: { color: getComputedStyle(document.body).getPropertyValue('--text') } },
+      y: { beginAtZero: true, title: { display: true, text: 'Hours of Sleep' } },
       x: { ticks: { color: getComputedStyle(document.body).getPropertyValue('--text') } }
     },
     plugins: {
