@@ -140,6 +140,14 @@
     </div>
   </main>
 
+  <!-- ========================= MOBILE AD SECTION ========================= -->
+<div id="mobileAdContainer" class="mobile-ad hidden">
+  <!-- Example: Google AdSense Ad -->
+  <div id="mobileAdContainer" class="mobile-ad hidden">
+  <img src="images/ad-placeholder.png" alt="Ad Banner" style="width:100%;border-radius:10px;">
+</div>
+</div>
+
   <!-- ========================= FOOTER ========================= -->
   <footer class="site-footer">
     <p>© 2025 Sleep Calculator | Built by Develoop Studios.</p>
@@ -151,5 +159,27 @@
 
   <!-- JS -->
   <script src="js/script.js"></script>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  // Detect if user is on mobile
+  function isMobileDevice() {
+    return /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
+  }
+
+  // Show ad only on mobile
+  document.addEventListener("DOMContentLoaded", function() {
+    if (isMobileDevice()) {
+      const adContainer = document.getElementById("mobileAdContainer");
+      adContainer.classList.remove("hidden");
+      try {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) {
+        console.error("AdSense load error:", e);
+      }
+    }
+  });
+</script>
+
 </body>
 </html>
