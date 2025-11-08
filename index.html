@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -7,16 +7,15 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  
-  <!-- =========================
-       HEADER
-  ========================= -->
+  <div class="accent-bar"></div>
+
+  <!-- ========================= HEADER ========================= -->
   <header class="page-header">
     <div class="header-inner">
       <div class="header-left">
-      <a href="index.html">
-        <img src="images/logo.png" alt="Sleep Calculator Logo" class="site-logo" />
-      </a>
+        <a href="index.html" class="header-logo">
+          <img src="images/logo.png" alt="Sleep Calculator Logo" />
+        </a>
       </div>
       <div class="header-center">
         <h1>
@@ -30,14 +29,14 @@
     </div>
   </header>
 
-  <!-- =========================
-       MAIN CONTENT
-  ========================= -->
+  <!-- ========================= MAIN CONTENT ========================= -->
   <main class="calculator-container" id="calculatorRoot">
     <div class="calculator-card collapsed">
       <h2>🌙 Sleep Calculator</h2>
+
       <div class="calculator-grid">
-        <!-- Age Range -->
+
+        <!-- AGE RANGE -->
         <section class="age-range" aria-labelledby="ageHeading">
           <h3 id="ageHeading">Age Range</h3>
           <div class="age-buttons" role="list">
@@ -54,12 +53,12 @@
             <button role="listitem">56-64<br><span>Years</span></button>
             <button role="listitem">65+<br><span>Years</span></button>
           </div>
+          <div class="age-warning hidden">Please select an age range.</div>
         </section>
 
-        <!-- Sleep Schedule -->
+        <!-- SLEEP SCHEDULE -->
         <section class="sleep-schedule" aria-labelledby="scheduleHeading">
           <h3 id="scheduleHeading">Sleep Schedule</h3>
-
           <div class="schedule-options" role="radiogroup">
             <label class="radio-btn active">
               <input type="radio" name="mode" value="wake" checked>
@@ -81,16 +80,12 @@
               <option>PM</option>
             </select>
           </div>
-          </br>
-          <button id="calculate" class="btn-primary">Calculate</button>          
+
+          <button id="calculate" class="btn-primary">Calculate</button>
         </section>
+
       </div>
 
-      <!-- CHART LINK (appears after results) -->
-      </br>
-      <div><p id="openChart" class="open-chart-link">
-        <a href="recommended.html">📊 View Recommended Sleep Chart</a>
-      </p></div>
       <!-- RECOMMENDED INFO -->
       <div id="recommended" class="recommended hidden"></div>
 
@@ -98,37 +93,30 @@
       <div id="results" class="results hidden" aria-live="polite"></div>
 
       <!-- SPECIAL NOTE -->
-      <div id="specialNote" class="special-note hidden">        
+      <div id="specialNote" class="special-note hidden"></div>
+
+      <!-- GO BACK -->
+      <div class="go-back-wrap hidden" id="goBackWrap">
+        <button id="goBack" class="go-back">← Go Back</button>
       </div>
 
-    <!-- GO BACK -->
-    <div class="go-back-wrap hidden" id="goBackWrap">
-      <button id="goBack" class="go-back">← Go Back</button>      
-    </div>
+      <!-- CHART LINK -->
+      <p id="openChart" class="open-chart-link hidden">
+        <a href="recommended.html">📊 View Recommended Sleep Chart</a>
+      </p>
 
+    </div>
   </main>
 
-  <!--
-  =========================
-       FOOTER
-  =========================
-  -->
+  <!-- ========================= FOOTER ========================= -->
   <footer class="site-footer">
-    <p>© 2025 Sleep Calculator | Built by Develoop Studios.
+    <p>© 2025 Sleep Calculator | Built by Develoop Studios.</p>
     <p>
-       <a href="./legal/terms.html" id="termsLink">Terms of Use</a> · 
-       <a href="./legal/privacy.html" id="privacyLink">Privacy Policy</a>
+      <a href="#" id="termsLink">Terms of Use</a> · 
+      <a href="#" id="privacyLink">Privacy Policy</a>
     </p>
   </footer>
+
   <script src="js/script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
