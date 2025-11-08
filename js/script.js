@@ -347,4 +347,3 @@ themeToggle.textContent = document.body.classList.contains('dark') ? 'ðŸŒž' : 'ð
     }
   });
 });
-
