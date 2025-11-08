@@ -153,21 +153,6 @@
       overflow-x: auto;
     }
 
-    .table-wrapper {
-      width: 100%;
-      overflow-x: auto;        /* horizontal scroll on small screens */
-      -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
-      border-radius: 12px;     /* optional rounded corners */
-    }
-
-    .table-wrapper table {
-      width: 100%;
-      min-width: 600px;        /* ensures table is readable, scrolls if viewport smaller */
-      border-collapse: separate;
-      border-spacing: 0;
-    }
-
-
     .info {
       background: var(--panel-bg);
       padding: 16px 20px;
@@ -294,11 +279,7 @@
     </table>
 
     <div class="chart-box">
-        <div class="table-wrapper">
-            <table>
-              <canvas id="sleepChart" width="400" height="220"></canvas>
-            </table>
-        </div>
+      <canvas id="sleepChart" width="400" height="220"></canvas>
     </div>
 
     <div class="info">
