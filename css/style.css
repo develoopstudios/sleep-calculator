@@ -159,7 +159,7 @@ body {
   margin: 0 16px;
 }
 
-.calculator-card.collapsed { height: 410px; } /* default height without results */
+.calculator-card.collapsed { height: 425px; } /* default height without results */
 .calculator-card.expanded { height: auto; }
 
 .calculator-card h2 {
@@ -587,4 +587,5 @@ footer {
 body.dark .takeaways-box {
   background: var(--panel-bg);
 }
+
 
