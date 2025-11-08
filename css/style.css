@@ -495,7 +495,7 @@ footer {
    RESPONSIVE MOBILE
 =========================
 */
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .calculator-grid { 
     grid-template-columns: 1fr; 
     gap:16px; 
@@ -513,7 +513,7 @@ footer {
 /* ==============================
    Tablet layout adjustments
    ============================== */
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1280px) {
   .calculator-grid {
     display: flex;
     flex-direction: column;
@@ -630,5 +630,6 @@ footer {
 body.dark .takeaways-box {
   background: var(--panel-bg);
 }
+
 
 
